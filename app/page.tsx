@@ -13,13 +13,13 @@ export default function Page() {
     <>
       <HeroSection />
       <FeatureSection />
-      <FeaturedArticles />
+      <BlogSection />
       <IdeasSection />
       <TrendingSection />
       <BannerSection />
       <CaseStudiesSection />
       <NewsletterSection />
-      <BlogSection />
+      <FeaturedArticles />
     </>
   )
 }
