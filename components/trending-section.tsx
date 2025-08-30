@@ -1,111 +1,120 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useRef } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import Image from "next/image";
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const trending = [
   {
     id: 1,
-    title: "Social Media Trends for Content Creators",
-    image: "https://picsum.photos/400/225?random=30",
+    title: "Social Media Trends ",
+    image: "https://picsum.photos/600/350?random=30",
     category: "Digital Marketing",
   },
   {
     id: 2,
     title: "Creating a Perfect Writing Setup",
-    image: "https://picsum.photos/400/225?random=31",
+    image: "https://picsum.photos/600/350?random=31",
     category: "Productivity",
   },
   {
     id: 3,
     title: "The Art of Storytelling Through Food",
-    image: "https://picsum.photos/400/225?random=32",
+    image: "https://picsum.photos/600/350?random=32",
     category: "Content Creation",
   },
   {
     id: 4,
     title: "Building Your Digital Presence",
-    image: "https://picsum.photos/400/225?random=33",
+    image: "https://picsum.photos/600/350?random=33",
     category: "Personal Branding",
   },
   {
     id: 5,
     title: "Mindful Writing Practices",
-    image: "https://picsum.photos/400/225?random=34",
+    image: "https://picsum.photos/600/350?random=34",
     category: "Wellness",
   },
-]
+];
 
 export function TrendingSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400
-      const newScrollPosition =
-        scrollContainerRef.current.scrollLeft + (direction === "left" ? -scrollAmount : scrollAmount)
-
+      const scrollAmount = 400;
       scrollContainerRef.current.scrollTo({
-        left: newScrollPosition,
+        left:
+          scrollContainerRef.current.scrollLeft +
+          (direction === "left" ? -scrollAmount : scrollAmount),
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-transparent">
-      <div className="absolute inset-0 dark:bg-gradient-to-r dark:from-gray-900/10 dark:to-purple-900/10" />
+    <section className="py-20 relative bg-gray-50 dark:bg-transparent overflow-hidden">
+      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-gray-900/30 dark:via-purple-900/20 dark:to-blue-900/30 blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 relative">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-semibold dark:text-white">Trending now</h2>
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold dark:text-white bg-gradient-to-r from-cyan-400 via-blue-300 to-purple-400 bg-clip-text text-transparent">
+            🔥 Trending Now
+          </h2>
           <div className="flex gap-2">
             <Button
               variant="outline"
               size="icon"
               onClick={() => scroll("left")}
-              className="h-8 w-8 rounded-full dark:border-gray-700 dark:bg-gray-900/50 dark:hover:bg-gray-800/50"
+              className="h-10 w-10 rounded-full border-gray-300 dark:border-gray-700 dark:bg-gray-900/50 hover:scale-110 transition-transform"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
               <span className="sr-only">Scroll left</span>
             </Button>
             <Button
               variant="outline"
               size="icon"
               onClick={() => scroll("right")}
-              className="h-8 w-8 rounded-full dark:border-gray-700 dark:bg-gray-900/50 dark:hover:bg-gray-800/50"
+              className="h-10 w-10 rounded-full border-gray-300 dark:border-gray-700 dark:bg-gray-900/50 hover:scale-110 transition-transform"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
               <span className="sr-only">Scroll right</span>
             </Button>
           </div>
         </div>
+
+        {/* Scrollable Cards */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-6"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {trending.map((item) => (
-            <article key={item.id} className="flex-none w-[300px] md:w-[400px] group cursor-pointer">
-              <div className="bg-white dark:bg-gray-900/50 dark:backdrop-blur-sm dark:border dark:border-gray-700/50 rounded-lg overflow-hidden hover-glow transition-all duration-300">
+            <article
+              key={item.id}
+              className="flex-none w-[300px] md:w-[380px] group cursor-pointer"
+            >
+              <div className="bg-white/70 dark:bg-gray-900/60 backdrop-blur-lg border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105">
+                {/* Image */}
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src={item.image || "/placeholder.svg"}
+                    src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-4">
+                {/* Content */}
+                <div className="p-5">
                   <Badge
                     variant="secondary"
-                    className="bg-[#FFD700]/10 text-[#FFD700] hover:bg-[#FFD700]/20 dark:bg-gradient-to-r dark:from-[#FFD700]/20 dark:to-[#FFA500]/20 dark:text-[#FFD700] dark:border dark:border-[#FFD700]/30 mb-3"
+                    className="bg-gradient-to-r from-yellow-400/30 to-orange-400/30 text-yellow-500 font-medium px-3 py-1 rounded-full mb-3 border border-yellow-400/30"
                   >
                     {item.category}
                   </Badge>
-                  <h3 className="font-semibold group-hover:text-[#06D6A0] dark:text-white dark:group-hover:text-[#00FF94] transition-colors">
+                  <h3 className="text-lg font-semibold leading-snug group-hover:text-cyan-600 dark:text-white dark:group-hover:text-cyan-400 transition-colors">
                     {item.title}
                   </h3>
                 </div>
@@ -115,5 +124,5 @@ export function TrendingSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

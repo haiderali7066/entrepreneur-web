@@ -1,26 +1,30 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-gray-50 dark:bg-gray-900/50 dark:backdrop-blur-sm dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-1 mb-4">
-              <span className="text-[#06D6A0] dark:text-[#00FF94] font-medium">Founders</span>
-              <span className="font-medium dark:text-white">Insights</span>
-            </div>
+    <footer className="bg-gray-50 dark:bg-gray-900/50 dark:backdrop-blur-sm border-t border-gray-200 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Branding */}
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              Founders Insights
+            </h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Premium content and resources for ambitious founders.
             </p>
           </div>
+
+          {/* Resources */}
           <div>
-            <h3 className="font-semibold mb-3 dark:text-white">Resources</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+              Resources
+            </h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/blog"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
@@ -28,7 +32,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/guides"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Guides
                 </Link>
@@ -36,20 +40,24 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/newsletter"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Newsletter
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Company */}
           <div>
-            <h3 className="font-semibold mb-3 dark:text-white">Company</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+              Company
+            </h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   About
                 </Link>
@@ -57,7 +65,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Contact
                 </Link>
@@ -65,20 +73,24 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/careers"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Careers
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Legal */}
           <div>
-            <h3 className="font-semibold mb-3 dark:text-white">Legal</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+              Legal
+            </h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Privacy
                 </Link>
@@ -86,7 +98,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Terms
                 </Link>
@@ -94,10 +106,12 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
+
+        {/* Footer Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()} Founders Insights. All rights reserved.
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import { BlogSection } from "@/components/blog-section"
 import { FeatureSection } from "@/components/feature-section"
-import { FeaturedArticles } from "@/components/featured-articles"
+// import { FeaturedArticles } from "@/components/featured-articles"
 import { HeroSection } from "@/components/hero-section"
 import { IdeasSection } from "@/components/ideas-section"
 import { TrendingSection } from "@/components/trending-section"
@@ -19,7 +19,7 @@ export default function Page() {
       <BannerSection />
       <CaseStudiesSection />
       <NewsletterSection />
-      <FeaturedArticles />
+      {/* <FeaturedArticles /> */}
     </>
   )
 }
